@@ -1,4 +1,6 @@
-hola { }   /*Comentario*/
+hola { }  [[
+    && ||
+]] /*Comentario*/
 (   identificador )      absoluto
 ,   cadena =   dec
 =!!=   decimal

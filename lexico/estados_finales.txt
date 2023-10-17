@@ -31,36 +31,35 @@
 333 : NUMERO REAL
 334 : NUMERO REAL CON NOTACION DESARROLLADA
 335 : CADENA DE TEXTO
+501 : 'absoluto'
+502 : 'cadena'
+503 : 'dec'
+504 : 'decimal'
+505 : 'def'
+506 : 'do'
+507 : 'elif'
+508 : 'else'
+509 : 'entero'
+510 : 'esdecimal'
+511 : 'esnumero'
+512 : 'in'
+513 : 'ifwhether'
+514 : 'lectura'
+515 : 'list'
+516 : 'logic'
+517 : 'longitud'
+518 : 'main'
+519 : 'maximo'
+520 : 'minimo'
+521 : 'numerical'
+522 : 'potencia'
+523 : 'range'
+524 : 'redondear'
+525 : 'repeat'
+526 : 'return'
+527 : 'string'
+528 : 'sumando'
+529 : 'true'
+530 : 'vars'
+531 : 'when 
 999 : EOF
-
-'absoluto': 501,
-'cadena': 502,
-'dec': 503,
-'decimal': 504,
-'def': 505,
-'do': 506,
-'elif': 507,
-'else': 508,
-'entero': 509,
-'esdecimal': 510,
-'esnumero': 511,
-'in': 512,
-'ifwhether': 513,
-'lectura': 514,
-'list': 515,
-'logic': 516,
-'longitud': 517,
-'main': 518,
-'maximo': 519,
-'minimo': 520,
-'numerical': 521,
-'potencia': 522,
-'range': 523,
-'redondear': 524,
-'repeat': 525,
-'return': 526,
-'string': 527,
-'sumando': 528,
-'true': 529,
-'vars': 530,
-'when': 531

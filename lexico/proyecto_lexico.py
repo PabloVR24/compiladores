@@ -61,7 +61,7 @@ class lexico:
     # Columas de la tabla de caracteres
     diccionario_caracteres = { '{': 0, '}': 1, '(': 2, ')': 3, ',': 4, '=': 5, '.': 6, ':': 7, '-': 8, '[': 9, ']': 10, '&': 11, '|': 12, '+': 13, '*': 14, '/': 15, '!': 16, '<': 17, '>': 18, '"': 19, 'E': 20, '[a-zA-Z]': 21, '[0-9]': 22, '_': 23, ' ': 24, '\n': 25}
 
-    diccionario_errores = { 400: "Simbolo [ invalido", 401: "Simbolo ] invalido", 402: "Simbolo & invalido", 403: "Simbolo | invalido", 404: "Comentario mal construido", 406: "Número entero con NA mal construido", 408: "Número real con NA mal construido", 407: "Número real mal construido", 409: "Texto mal construido", 410: 'Numero Entero mal construido', 411: "Número entero mal construido", 499: "Error Desconocido"}
+    diccionario_errores = { 400: "Simbolo [ invalido", 401: "Simbolo ] invalido", 402: "Simbolo & invalido", 403: "Simbolo | invalido", 404: "Comentario mal construido", 406: "Número entero con NA mal construido", 408: "Número real con NA mal construido", 407: "Número real mal construido", 409: "Texto mal construido", 410: 'Numero Entero mal construido', 411: "Número entero mal construido", 499: "Desconocido: Verificar codigo"}
 
     diccionario_completo = { 301: "{", 302: "}", 303: "(", 304: ")", 305: ",", 306: "=", 307: "=!!=", 308: ":", 310: ":=::", 311: "-", 312: "[[", 313: "]]", 314: "&&", 315: "||", 316: "+", 317: "++", 318: "*", 319: "/", 320: "COMENTARIO", 321: "!", 322: "<", 323: "<-", 324: "<<!!=", 325: "<!!<", 326: ">", 327: ">>!!=", 328: ">!!>", 329: "IDENTIFICADOR", 331: "NUMERO ENTERO", 332: "NUMERO ENTERO CON NOTACION DESARROLLADA", 333: "NUMERO REAL", 334: "NUMERO REAL CON NOTACION DESARROLLADA", 335: "CADENA DE TEXTO", 999: "EOF"}
 
@@ -104,21 +104,20 @@ class lexico:
         while self.counter != car_length:
             palabra_reservada = False
             caracter = inftxt[self.counter]  # Se obtiene el caracter
-            columna = self.columna_tabla(caracter, self.previous_state)
+            columna = self.columna_tabla(caracter, self.previous_state) 
             if (columna == 499):
                 self.final_states.append(499)
                 return self.final_states
-                
-            if (self.current_state >= 400 and self.current_state < 500):
-                self.final_states.append(self.current_state)
-                return self.final_states
-
+    
             self.current_lexem += caracter  # se va sumando el caracter a una cadena string
             self.current_state = matriz_estados[self.current_state][columna]
             #print(self.current_state, ' -> ', caracter)
            
-
             if (self.current_state >= 300):
+                if (self.current_state >= 400 and self.current_state < 500):
+                    self.final_states.append(self.current_state)
+                    return self.final_states
+            
                 if (self.current_state == 329):
                     self.current_string = self.current_lexem[:-1].strip()
                     if (self.current_string in self.palabras_reservadas):
@@ -139,17 +138,15 @@ class lexico:
 
 analizador_lexico = lexico()
 codigo_fuente = analizador_lexico.read_code()  # Lee el codigo fuente
-# imprime el codigo fuente para saber que vamos a analizar
-#print(codigo_fuente)
-# Se analiza el codigo fuente y se indica que se va encontrando
 aux = analizador_lexico.analisis_codigo(
     codigo_fuente, analizador_lexico.matriz_estados)
 print()
 for i in aux:
+    # print(i) !DESACTIVAR COMENTARIO PARA SOLO LOS ESTADOS Y COMENTAR LOS SIGUIENTES
     for llave, valor in analizador_lexico.palabras_reservadas.items():
         if valor == i:
             print(i, ' : ', llave)
     if i in analizador_lexico.diccionario_completo:
         print(i,' : ',analizador_lexico.diccionario_completo[i])
     if i in analizador_lexico.diccionario_errores:
-        print(i,' : ',analizador_lexico.diccionario_errores[i])
+        print('ERROR: ',i,' : ',analizador_lexico.diccionario_errores[i])
