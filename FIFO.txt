@@ -1,0 +1,38 @@
+FIRST(P) = {<main>}
+FIRST(PRINCIPAL) = {<main>}
+FIRST(BLOQUE) = {
+{,
+def,
+nulo
+}
+FIRST(FUNCIONES) = {
+def,
+nulo
+}
+FIRST(FUNCIONES') = {
+def,
+nulo
+}
+FIRST(PARAMETROS) = {
+numerical,
+dec,
+string,
+logic,
+identificador,
+nulo
+}
+FIRST(PARAMETROS_PRIMA) = {
+,,
+nulo
+}
+FIRST(RETURN) = {
+return,
+nulo
+}
+FIRST(TIPO) = {
+numerical,
+dec,
+string,
+logic,
+list
+}

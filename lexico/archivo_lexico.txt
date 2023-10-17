@@ -1,0 +1,23 @@
+hola { }   /*Comentario*/
+(   identificador )      absoluto
+,   cadena =   dec
+=!!=   decimal
+:   do :=::  elif 
+-   else [[   entero
+]]   esdecimal
+&&   esnumero
+||   ifwhether
++   in ++   lectura *   list
+/   logic
+"COMENTARIO" longitud    !   main
+<   maximo <-   minimo
+<<!!=   numerical <!!<   potencia range
+>   ranger
+>>!!=   redondear >!!>   repeat
+
+returnstring
+return string sumando
+true va_rs vars when
+
+3 335E+10 335E-10 335EE10 
+33.15 33.155E+10 33.155E-10 33.155EE10

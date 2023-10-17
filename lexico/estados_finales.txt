@@ -1,0 +1,66 @@
+301 : {
+302 : }
+303 : (
+304 : )
+305 : ,
+306 : =
+307 : =!!=
+308 : :
+310 : :=::
+311 : -
+312 : [[
+313 : ]]
+314 : &&
+315 : ||
+316 : +
+317 : ++
+318 : *
+319 : /
+320 : COMENTARIO
+321 : !
+322 : <
+323 : <-
+324 : <<!!=
+325 : <!!<
+326 : >
+327 : >>!!=
+328 : >!!>
+329 : IDENTIFIACDOR O PALABRA RESERVADA
+331 : NUMERO ENTERO
+332 : NUMERO ENTERO CON NOTACION DESARROLLADA
+333 : NUMERO REAL
+334 : NUMERO REAL CON NOTACION DESARROLLADA
+335 : CADENA DE TEXTO
+999 : EOF
+
+'absoluto': 501,
+'cadena': 502,
+'dec': 503,
+'decimal': 504,
+'def': 505,
+'do': 506,
+'elif': 507,
+'else': 508,
+'entero': 509,
+'esdecimal': 510,
+'esnumero': 511,
+'in': 512,
+'ifwhether': 513,
+'lectura': 514,
+'list': 515,
+'logic': 516,
+'longitud': 517,
+'main': 518,
+'maximo': 519,
+'minimo': 520,
+'numerical': 521,
+'potencia': 522,
+'range': 523,
+'redondear': 524,
+'repeat': 525,
+'return': 526,
+'string': 527,
+'sumando': 528,
+'true': 529,
+'vars': 530,
+'when': 531
