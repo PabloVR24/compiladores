@@ -1,0 +1,77 @@
+329 : IDENTIFICADOR
+301 : {
+302 : }
+312 : [[
+314 : &&
+315 : ||
+313 : ]]
+320 : COMENTARIO
+303 : (
+329 : IDENTIFICADOR
+304 : )
+501 : absoluto
+305 : ,
+502 : cadena
+306 : =
+503 : dec
+307 : =!!=
+504 : decimal
+308 : :
+506 : do
+310 : :=::
+507 : elif
+311 : -
+508 : else
+312 : [[
+509 : entero
+313 : ]]
+510 : esdecimal
+314 : &&
+511 : esnumero
+315 : ||
+513 : ifwhether
+316 : +
+512 : in
+317 : ++
+514 : lectura
+318 : *
+515 : list
+319 : /
+516 : logic
+335 : CADENA DE TEXTO
+517 : longitud
+321 : !
+518 : main
+322 : <
+519 : maximo
+323 : <-
+520 : minimo
+324 : <<!!=
+521 : numerical
+325 : <!!<
+522 : potencia
+523 : range
+326 : >
+329 : IDENTIFICADOR
+327 : >>!!=
+524 : redondear
+328 : >!!>
+525 : repeat
+320 : COMENTARIO
+329 : IDENTIFICADOR
+526 : return
+527 : string
+528 : sumando
+529 : true
+329 : IDENTIFICADOR
+530 : vars
+531 : when
+331 : NUMERO ENTERO
+332 : NUMERO ENTERO CON NOTACION DESARROLLADA
+332 : NUMERO ENTERO CON NOTACION DESARROLLADA
+332 : NUMERO ENTERO CON NOTACION DESARROLLADA
+333 : NUMERO REAL
+334 : NUMERO REAL CON NOTACION DESARROLLADA
+334 : NUMERO REAL CON NOTACION DESARROLLADA
+334 : NUMERO REAL CON NOTACION DESARROLLADA
+999 : EOF

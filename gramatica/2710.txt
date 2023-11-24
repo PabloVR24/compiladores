@@ -1,0 +1,202 @@
+
+
+ANALISIS SINTACTICO, PREDICTIVO NO RECURSIVO
+
+-	Enumerado de gramáticas (8)
+
+PASO 1: Sacar terminales y no terminales
+SIMBOLOS NO TERMINALES (MAYUSCULAS): E, E’, T, T’, F
+
+SIMBOLOS TERMINALES (Todo lo que reconozca el lexico): +, * , (,), identificador
+
+PASO 2: FIRST POR CADA SIMBOLO NO TERMINAL
+PASO 3: FOLLOW POR CADA SIMBOLO NO TERMINAL
+PASO 4: LLENAR LA TABLA SINTACTICA
+PASO 5: IMPLEMENTAR MODULO SINTAXIS
+
+PASO 2----------------------
+PASO 2----------------------
+PASO 2----------------------
+PASO 2----------------------
+
+// PARA FIRSTS DEBEMOS SACAR EL SIMBOLO QUE VEMOS DIRECTA O INTDIRECTAMENTE 
+FIRST(E)= { identificador(1), ( (1) } 
+FIRST(E')= { +(2), €(3) } 
+FIRST(T)= { identificador(4), ( (4) } 
+FIRST(T')= { *(5), €(6) }
+FIRST(F)= { identificador(8), ( (7) }
+
+
+// FOLLOWS EL SIGUIENTE DE LA FLECHA
+// E [SIMBOLO INICIAL DE LA GRAMATICA]
+
+EJEMPLO GRAMATICA:
+1)	E  --> TE'
+2)	E’ --> + TE’
+3)	E’ --> €
+4)	T  --> FT’
+5)	T’ --> * FT’
+6)	T’ --> €
+7)	F  --> (E)
+8)  F  --> identificador
+
+
+FOLLOW(E)= { ), $(EOF) }
+
+--------------------------------------------------
+
+"FOLLOW(E')= { FOLLOW(E) }"
+// SI EL SIMBOLO E' PRODUCE NULO SE ELIMINA Y QUEDA
+// E --> T
+
+FOLLOW(E')= { ), $(EOF) }
+
+--------------------------------------------------
+
+"FOLLOW(T)= { FIRST(E') MENOS NULO (€), E' PRODUCE NULO ENCONTES + LOS FOLLOWS DE E) }"
+FOLLOW(T)= { +, ), $(EOF) }
+
+--------------------------------------------------
+
+"FOLLOW(T')= { FIRST(E') MENOS NULO (€) ) }"
+FOLLOW(T')= { +, ), $(EOF) }
+
+--------------------------------------------------
+
+"FOLLOW(F)= { FIRST(T') MENOS NULO (€) T' PRODUCE NULO ENTONCES SON LOS FOLLOWS DE T' }"
+FOLLOW(F)= { *, +, ) $(EOF) }
+
+
+
+EJEMPLO
+EJEMPLO
+EJEMPLO
+EJEMPLO
+EJEMPLO
+EJEMPLO
+EJEMPLO
+EJEMPLO
+
+1   E   ->  TE'
+2   E'  ->  +TE'
+3   E'  ->  -TE'
+4   E'  ->  €
+5   T   ->  FT'
+6   T'  ->  *FT'
+7   T'  ->  /FT'
+8   T'  ->  €
+9   F   ->  (E)
+10  F   ->  numero
+11  F   ->  identificador
+
+E, E', T, T', F
+
+FIRSTS
+FIRSTS
+FIRSTS
+
+FIRST(E)   { (, numero, identificador }
+FIRST(E')  { +, -, € }
+FIRST(T )  { (, numero, identificador }
+FIRST(T')  { *, /, € }
+FIRST(F )  { (, numero, identificador }
+
+FOLLOWS
+FOLLOWS
+FOLLOWS
+
+REGLAS
+1) FOLLOW(A) -> {$EOF}
+2) FOLLOW(B) -> {}
+
+PROGRAMA -> DECLARACIONVARIABLES MAIN DECLARACIONFUNCIONES
+DECLARACIONVARIABLES -> {/{ VARIABLES }/}
+VARIABLES -> TIPO LISTAVARIABLES : VARIABLES
+VARIABLES -> nulo
+LISTAVARIABLES -> identificador LISTAVARIABLESPRIMA
+LISTAVARIABLESPRIMA -> , LISTAVARIABLES
+LISTAVARIABLESPRIMA -> nulo
+MAIN -> <-- main --> BLOQUE
+TIPO -> int
+TIPO -> string
+TIPO -> logical
+TIPO -> list
+TIPO -> real
+DECLARACIONFUNCIONES -> DECLARAFUNCION DECLARACIONFUNCIONES
+DECLARACIONFUNCIONES -> nulo
+DECLARAFUNCION-> (TIPO) identificador PARAMETROS BLOQUE RETURN DECLARAFUNCION
+DECLARAFUNCION -> nulo
+BLOQUE -> {{ INSTRUCCIONES }}
+PARAMETROS -> (( LISTAPARAMETROS ))
+LISTAPARAMETROS -> identificador LISTAPARAMETROSPRIMA
+LISTAPARAMETROS -> nulo
+LISTAPARAMETROSPRIMA -> ; LISTAPARAMETROS
+LISTAPARAMETROSPRIMA -> nulo
+RETURN -> return LISTARETURN
+LISTARETURN -> identificador LISTARETURNPRIMA
+LISTARETURNPRIMA -> , LISTARETURN
+LISTARETURNPRIMA -> nulo
+INSTRUCCIONES-> INSTRUCCION INSTRUCCIONES
+INSTRUCCIONES ->nulo
+INSTRUCCION -> identificador :=> LLAMADAFUNCION
+INSTRUCCION -> while do EXPB BLOQUE
+INSTRUCCION -> cycle BLOQUE EXPB
+INSTRUCCION -> repeating BLOQUE to condiction EXPB
+INSTRUCCION -> if EXPB BLOQUE ELSEIF ELSE
+INSTRUCCION -> for identificador into RANGO BLOQUE
+INSTRUCCION -> printing ( VARIABLESIMPRIMIR )
+LLAMADAFUNCION -> identificador ( LISTAPARAMETROS )
+LLAMADAFUNCION -> FUNCION_BUILT_IN
+FUNCION_BUILT_IN -> longitud(identificador)
+FUNCION_BUILT_IN -> esnumero(identificador)
+FUNCION_BUILT_IN -> esdecimal (identificador)
+FUNCION_BUILT_IN -> entero(identificador)
+FUNCION_BUILT_IN -> decimal(identificador)
+FUNCION_BUILT_IN -> lectura()
+FUNCION_BUILT_IN -> absoluto(EXP)
+FUNCION_BUILT_IN -> cadena(EXP)
+FUNCION_BUILT_IN -> potencia(EXP)
+FUNCION_BUILT_IN -> redondear(EXP)
+FUNCION_BUILT_IN -> sumando ( identificador )
+FUNCION_BUILT_IN -> mínimo ( identificador )
+FUNCION_BUILT_IN -> máximo ( identificador )
+VARIABLESIMPRIMIR -> identificador VARIABLESPRIMA
+VARIABLESIMPRIMIR -> texto VARIABLESPRIMA
+VARIABLEPRIMA -> , VARIABLESIMPRIMIR
+VARIABLEPRIMA -> nulo
+ELSEIF -> elseif EXPB BLOQUE ELSEIF
+ELSEIF -> nulo
+ELSE -> nulo
+ELSE -> other BLOQUE 
+Declaración del rango:
+RANGO -> range (VALOR1)
+VALOR1 -> EXP VALOR2
+VALOR2 -> nulo
+VALOR2 -> ; EXP VALOR3
+VALOR3 -> nulo
+VALOR3 -> ; EXP
+EXPB -> TERMB EXPB’
+EXPB’ -> &%& TERMB EXPB’
+EXPB’ -> |%| TERMB EXPB’
+EXPB’ -> nulo
+TERMB -> EXP TERMB’ 
+TERMB’ -> OPERADOR EXP TERMB’
+TERMB’ -> nulo
+EXP -> TERM EXP’
+EXP’ -> :+ TERM EXP’
+EXP’ -> :- TERM EXP’
+EXP’ -> nulo
+TERM -> FACTOR TERM’
+TERM’ -> :* FACTOR TERM’
+TERM’ -> :/ FACTOR TERM’
+TERM’ -> nulo
+FACTOR -> identificador FUNCT
+FACTOR -> (EXPB)
+FUNCT -> ( PARAMETROS )
+FUNCT -> nulo
+OPERADOR -> <:
+OPERADOR -> :>
+OPERADOR -> <:=
+OPERADOR -> :>=
+OPERADOR -> =:=
+OPERADOR -> !:=

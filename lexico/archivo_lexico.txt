@@ -1,25 +1,17 @@
-hola { }  [[
-    && ||
-]] /*Comentario*/
-(   identificador )      absoluto
-,   cadena =   dec
-=!!=   decimal
-:   do :=::  elif 
--   else [[   entero
-]]   esdecimal
-&&   esnumero
-||   ifwhether
-+   in ++   lectura *   list
-/   logic
-"COMENTARIO" longitud    !   main
-<   maximo <-   minimo
-<<!!=   numerical <!!<   potencia range
->   ranger
->>!!=   redondear >!!>   repeat
+{<main>}{
+  when in range (10, 15, 1){
+   ifwhether true {
+      entero(a)
+   } elif a (string q, dec max){
+      n :=:: /*Comentario no debe afectar la secuencia*/ id * id2 + id3
+      /*Comentario no debe afectar la secuencia*/
+   }
+  }
+}
 
-returnstring
-return string sumando
-true va_rs vars when
+def a (:dec z:){
+   longitud(z)
+}
+return z
 
-3 335E+10 335E-10 335EE10 
-33.15 33.155E+10 33.155E-10 33.155EE10
+{:vars: b, l, z : string}

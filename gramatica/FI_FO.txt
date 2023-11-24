@@ -1,0 +1,317 @@
+PASO 1: Sacar terminales y no terminales
+SIMBOLOS NO TERMINALES (MAYUSCULAS):
+
+"P":  1,
+"PRINCIPAL":  2 , 
+"BLOQUE" :  3, 
+"FUNCIONES":  4, 
+"FUNCIONES'" :  5, 
+"PARAMETROS":  6, 
+"PARAMETROS_PRIMA":  7 , 
+"RETURN":  8, 
+"TIPO":  9, 
+"SECCION_VARIABLES":  10 , 
+"DECLARACION_VARIABLES":  11, 
+"DECLARACION_VARIABLES_PRIMA":  12 , 
+"LISTA_VARIABLES":  13, 
+"LISTA_VARIABLES_PRIMA":  14 , 
+"ESTATUTOS" : 15, 
+"ESTATUTO" : 16, 
+"ASIGNACION" : 17, 
+"ASIGNACION_PRIMA" : 18 , 
+"FUNCION_BUILT_IN" : 19, 
+"LISTA_ELEMENTO" : 20, 
+"LISTA_ELEMENTO_PRIMA" : 21 , 
+"IMPRESION" : 22, 
+"IMPRESION_PRIMA" : 23 , 
+"ESTATUTO_IF" : 24, 
+"CONDICION" : 25, 
+"ESTATUTO_CYCLEWHILE" : 26 , 
+"ESTATUTO_CYCLEFOR" : 27, 
+"FOR'"  : 28, 
+"INCREMENTO" : 29 , 
+"ESTATUTO_CYCLEREPEAT" : 30 , 
+"ESTATUTO_CYCLEDO" : 31, 
+"ELIF" : 32, 
+"RANGE" : 33, 
+"START" : 34, 
+"STOP" : 35, 
+"STEP" : 36, 
+"EXPB" : 37, 
+"EXPB'"  : 38, 
+"TERMB" : 39, 
+"TERMB'"  : 40, 
+"EXP" : 41, 
+"EXP'"  : 42, 
+"TERM"  : 43, 
+"TERM'"  : 44, 
+"FACTOR" : 45, 
+"FUNCT" : 46, 
+"OPER" : 47, 
+
+SIMBOLOS TERMINALES (Todo lo que reconozca el lexico): , 
+301 : { ,, 
+302 : } ,, 
+303 : ( ,, 
+304 : ) ,, 
+305 : , ,, 
+306 : = ,, 
+307 : =!!= ,, 
+308 : : ,, 
+310 : :=:: ,, 
+311 : - ,, 
+312 : [[ ,, 
+313 : ]] ,, 
+314 : && ,, 
+315 : || ,, 
+316 : + ,, 
+317 : ++ ,, 
+318 : * ,, 
+319 : / ,, 
+320 : COMENTARIO ,, 
+321 : ! ,, 
+322 : < ,, 
+323 : <- ,, 
+324 : <<!!< ,, 
+325 : <!!< ,, 
+326 : > ,, 
+327 : >>!!= ,, 
+328 : >!!> ,, 
+329 : IDENTIFIACDOR O PALABRA RESERVADA ,, 
+331 : NUMERO ENTERO ,, 
+332 : NUMERO ENTERO CON NOTACION DESARROLLADA ,, 
+333 : NUMERO REAL ,, 
+334 : NUMERO REAL CON NOTACION DESARROLLADA ,, 
+335 : CADENA DE TEXTO ,, 
+501 : 'absoluto' ,, 
+502 : 'cadena' ,, 
+503 : 'dec' ,, 
+504 : 'decimal' ,, 
+505 : 'def' ,, 
+506 : 'do' ,, 
+507 : 'elif' ,, 
+508 : 'else' ,, 
+509 : 'entero' ,, 
+510 : 'esdecimal' ,, 
+511 : 'esnumero' ,, 
+512 : 'in' ,, 
+513 : 'ifwhether' ,, 
+514 : 'lectura' ,, 
+515 : 'list' ,, 
+516 : 'logic' ,, 
+517 : 'longitud' ,, 
+518 : 'main' ,, 
+519 : 'maximo' ,, 
+520 : 'minimo' ,, 
+521 : 'numerical' ,, 
+522 : 'potencia' ,, 
+523 : 'range' ,, 
+524 : 'redondear' ,, 
+525 : 'repeat' ,, 
+526 : 'return' ,, 
+527 : 'string' ,, 
+528 : 'sumando' ,, 
+529 : 'true' ,, 
+530 : 'vars' ,, 
+531 : 'when'  ,, 
+532 : 'since' ,, 
+999 : EOF ,, 
+
+
+PASO 2: FIRST POR CADA SIMBOLO NO TERMINAL
+PASO 2: FIRST POR CADA SIMBOLO NO TERMINAL
+PASO 2: FIRST POR CADA SIMBOLO NO TERMINAL
+
+P:
+{ '{'(1) }
+PRINCIPAL  :
+{ '{'(2) }
+BLOQUE  :
+{ '{'(3) }
+FUNCIONES  :
+{ 'def'(4) }
+FUNCIONES' :
+{ 'def'(5), €(6) }
+PARAMETROS  :
+{ 'numerical'(7), 'dec'(7), 'string'(7), 'logic'(7), 'list'(7), €(8) }
+PARAMETROS_PRIMA  :
+{ ','(9), €(10) }
+RETURN  :
+{ 'return'(11), €(12) }
+TIPO  :
+{ 'numerical'(13), 'dec'(14), 'string'(15), 'logic'(16), 'list'(17) }
+SECCION_VARIABLES  :
+{ '{'(18) }
+DECLARACION_VARIABLES  :
+{ 'identificador'(19),   }
+DECLARACION_VARIABLES_PRIMA  :
+{ 'identificador'(20), €(21)  }
+LISTA_VARIABLES  :
+{ 'identificador'(22)  }
+LISTA_VARIABLES_PRIMA  :
+{ ','(23), €(24) }
+ESTATUTOS  :
+{ 'when'(25), 'since'(25), 'repeat'(25), identificador(25), 'do' (25), 'longitud'(25), 'esnumero'(25), 'esdecimal'(25), 'decimal'(25), 'lectura'(25), 'absoluto'(25), 'cadena'(25), 'potencia'(25), 'redondear'(25), 'sumando'(25), 'minimo'(25), 'maximo'(25), 'ifwhether'(25) ,€(26) }
+ESTATUTO  :
+{ 'when'(27), 'since'(28), 'repeat'(29), identificador(30), 'do' (31), 'longitud'(32), 'esnumero'(32), 'esdecimal'(32), 'decimal'(32), 'lectura'(32), 'absoluto'(32), 'cadena'(32), 'potencia'(32), 'redondear'(32), 'sumando'(32), 'minimo'(32), 'maximo'(32), 'ifwhether'(33) }
+ASIGNACION  :
+{ 'asignacion'(34) }
+ASIGNACION_PRIMA  :
+{ ':=::'(35), '<-'(36) }
+FUNCION_BUILT_IN  :
+{ 'longitud'(37), 'esnumero'(38), 'esdecimal'(39), 'decimal'(40), 'lectura'(41), 'absoluto'(42), 'cadena'(43), 'potencia'(44), 'redondear'(45), 'sumando'(46), 'minimo'(47), 'maximo'(48) }
+LISTA_ELEMENTO  :
+{ numero(49) }
+LISTA_ELEMENTO_PRIMA  :
+{ ','(50), €(51) }
+IMPRESION  :
+{ numero(52), texto(53) }
+IMPRESION_PRIMA  :
+{ ','(54), €(55) }
+ESTATUTO_IF  :
+{ 'ifwhether'(56) }
+CONDICION  :
+{ 'in'(57), identificador(58), '('(58) 'true'(59) }
+ESTATUTO_CYCLEWHILE  :
+{ 'when'(60) }
+ESTATUTO_CYCLEFOR  :
+{ 'since'(61) }
+FOR' :
+{ identificador(62), '('(63) }
+INCREMENTO  :
+{ identificador(67) }
+ESTATUTO_CYCLEREPEAT  :
+{ 'repeat'(65) }
+ESTATUTO_CYCLEDO  :
+{ 'do'(66) }
+ELIF  :
+{ 'elif'(67), 'else'(68), €(69) }
+RANGE  :
+{ 'range'(70) }
+START  :
+{ numero(71), €(72) }
+STOP  :
+{ numero(73) }
+STEP  :
+{ numero(74), €(75) }
+EXPB  :
+{ identificador(76), '('(76) }
+EXPB' :
+{ '&&'(77),'||'(78), €(79) }
+TERMB  :
+{ identificador(80), '('(80) }
+TERMB' :
+{  '>!!>'(81), '<!!<'(81), '>>!!='(81), '<<!!<'(81), '=!!='(81), €(82) }
+EXP  :
+{ identificador(83), '('(83) }
+EXP' :
+{ '+'(84),'-'(85), €(86) }
+TERM  :
+{ identificador(87), '('(87) }
+TERM' :
+{ '*'(88),'/'(89), €(90) }
+FACTOR  :
+{ identificador(91), '('(92) }
+FUNCT  :
+{ '('(93), €(94) }
+OPER  :
+{ '>!!>'(95), '<!!<'(93), '>>!!='(97), '<<!!<'(98), '=!!='(98), }
+
+PASO 3: FOLLOW POR CADA SIMBOLO NO TERMINAL
+PASO 3: FOLLOW POR CADA SIMBOLO NO TERMINAL
+PASO 3: FOLLOW POR CADA SIMBOLO NO TERMINAL
+
+P 
+{ $EOF }
+PRINCIPAL 
+{ 'def' }
+BLOQUE 
+{ 'def', 'return', '{' }
+FUNCIONES 
+{ '{',  }
+FUNCIONES'
+{ '{' }
+PARAMETROS 
+{ : , ) }
+PARAMETROS_PRIMA 
+{ : , ) }
+RETURN 
+{ 'def', '{' }
+TIPO 
+{ identificador, '}' }
+SECCION_VARIABLES 
+{ $EOF,  }
+DECLARACION_VARIABLES 
+{ '}' }
+DECLARACION_VARIABLES_PRIMA 
+{ '}' }
+LISTA_VARIABLES 
+{ 'def', '{', :  }
+LISTA_VARIABLES_PRIMA 
+{ 'def', '{', :  }
+ESTATUTOS 
+{ '}' }
+ESTATUTO 
+{ 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+ASIGNACION 
+{ 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+ASIGNACION_PRIMA 
+{ 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+FUNCION_BUILT_IN 
+{ 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+LISTA_ELEMENTO 
+{  }
+LISTA_ELEMENTO_PRIMA 
+{  }
+IMPRESION 
+{  }
+IMPRESION_PRIMA 
+{  }
+ESTATUTO_IF 
+{  }
+CONDICION 
+{ '{', 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+ESTATUTO_CYCLEWHILE 
+{ 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+ESTATUTO_CYCLEFOR 
+{ 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+FOR'
+{ 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+INCREMENTO 
+{ ) }
+ESTATUTO_CYCLEREPEAT 
+{ 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+ESTATUTO_CYCLEDO 
+{ 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+ELIF 
+{  }
+RANGE 
+{ '{', 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+START 
+{ ',' }
+STOP 
+{ ',' }
+STEP 
+{ ) }
+EXPB 
+{ '{', 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+EXPB'
+{ '{', 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+TERMB 
+{ '&&','||', '{', 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+TERMB'
+{ '&&','||', '{', 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+EXP 
+{ '>!!>', '<!!<', '>>!!=', '<<!!<', '=!!=', '&&','||', '{', 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+EXP'
+{ '>!!>', '<!!<', '>>!!=', '<<!!<', '=!!=', '&&','||', '{', 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+TERM 
+{ '+','-', '>!!>', '<!!<', '>>!!=', '<<!!<', '=!!=', '&&','||', '{', 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+TERM'
+{ '+','-', '>!!>', '<!!<', '>>!!=', '<<!!<', '=!!=', '&&','||', '{', 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+FACTOR 
+{ '*','/', '+','-', '>!!>', '<!!<', '>>!!=', '<<!!<', '=!!=', '&&','||', '{', 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+FUNCT 
+{ '*','/', '+','-', '>!!>', '<!!<', '>>!!=', '<<!!<', '=!!=', '&&','||', '{', 'when', 'since', 'repeat', identificador, 'do' , 'longitud', 'esnumero', 'esdecimal', 'decimal', 'lectura', 'absoluto', 'cadena', 'potencia', 'redondear', 'sumando', 'minimo', 'maximo', '}' }
+OPER 
+{ identificador(82), '('(82) }

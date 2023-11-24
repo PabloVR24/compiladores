@@ -1,0 +1,50 @@
+EJECUCION 1
+{<main>}{
+  when in range (10, 15, 1){
+   ifwhether true {
+      entero(a)
+   } elif a (string q, dec max){
+      n :=:: /*Comentario no debe afectar la secuencia*/ id * id2 + id3
+      /*Comentario no debe afectar la secuencia*/
+   }
+  }
+}
+
+def a (:dec z:){
+   longitud(z)
+}
+return z
+
+{:vars: b, l, z : string}
+
+
+EJECUCION 2:
+{<main>}{
+  do {
+   repeat{
+      sumando(martan_43)
+      decimal(sol)
+      lectura()
+   }
+   titi(list me, dec pregunto) * dialo
+  } in range (10, 20, 30)
+
+}
+
+def alpha (:dec z:){
+    since (a = b, a * b >>!!= c, a++){
+    cadena(z(dec a) + a)
+    lectura()
+   }
+
+}
+
+def beta(::){
+   when a + b =!!= c{
+      lectura()
+      /*COMENTARIO RANDOM*/
+   }
+}
+return lol
+
+{:vars: martan_43, lol, sol, titi : string me : dec pregunto : list}
